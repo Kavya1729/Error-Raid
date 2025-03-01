@@ -1,72 +1,31 @@
-import { useState, useEffect } from 'react';
-import "prismjs/themes/prism-tomorrow.css";
-import Editor from "react-simple-code-editor";
-import prism from "prismjs";
-import Markdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import "highlight.js/styles/github-dark.css";
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import AISolution from './AiSolution';
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [code, setCode] = useState(`function sum() {
-  return 1 + 1
-}`);
-
-  const [review, setReview] = useState(``);
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
 
   useEffect(() => {
-    prism.highlightAll();
+    const token = localStorage.getItem('token');
+    setIsAuthenticated(!!token);
   }, []);
 
-  async function reviewCode() {
-    const response = await axios.post('http://localhost:3000/ai/get-solution', { code });
-    setReview(response.data);
-  }
-
   return (
-    <>
-      <main>
-        <div className="left">
-          <div className="code">
-            <Editor
-              value={code}
-              onValueChange={code => setCode(code)}
-              highlight={code => prism.highlight(code, prism.languages.javascript, "javascript")}
-              padding={10}
-              style={{
-                fontFamily: '"Fira code", "Fira Mono", monospace',
-                fontSize: 20,
-                border: "1px solid #ddd",
-                borderRadius: "5px",
-                height: "100%",
-                width: "100%"
-              }}
-            />
-          </div>
-          <div
-            onClick={reviewCode}
-            className="review"
-          >
-            Review
-          </div>
-        </div>
-        <div className="right">
-          <Markdown
-            rehypePlugins={[rehypeHighlight]}
-            components={{
-              h1: ({ node, ...props }) => <h1 style={{ fontWeight: 'bold', fontSize: '2em' }} {...props} />,
-              h2: ({ node, ...props }) => <h2 style={{ fontWeight: 'bold', fontSize: '1.5em' }} {...props} />,
-              h3: ({ node, ...props }) => <h3 style={{ fontWeight: 'bold', fontSize: '1.2em' }} {...props} />,
-            }}
-          >
-            {review}
-          </Markdown>
-        </div>
-      </main>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
+        <Route path="/signup" element={<Signup setIsAuthenticated={setIsAuthenticated} />} />
+        <Route
+          path="/ai/get-solution"
+          element={isAuthenticated ? <AISolution /> : <Navigate to="/login" />}
+        />
+        <Route path="/" element={<Navigate to="/ai/get-solution" />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
