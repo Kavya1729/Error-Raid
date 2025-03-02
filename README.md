@@ -1,6 +1,6 @@
 # **Error-Raid - Code Correction Application**
 
-**Error-Aid** is an innovative web application built with the MERN stack, designed to help developers and learners by providing an AI-driven platform for code error correction. The platform uses **Gemini AI** to analyze and correct coding errors, improving users' coding skills through personalized, real-time feedback. Along with a smooth, interactive, and modern interface, **Error-Raid** allows users to log in, track progress, and efficiently improve their code.
+**Error-Raid** is an innovative web application built with the MERN stack, designed to help developers and learners by providing an AI-driven platform for code error correction. The platform uses **Gemini AI** to analyze and correct coding errors, improving users' coding skills through personalized, real-time feedback. Along with a smooth, interactive, and modern interface, **Error-Raid** allows users to log in, track progress, and efficiently improve their code.
 
 ---
 
