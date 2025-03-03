@@ -6,6 +6,7 @@ import Auth from './pages/Auth';
 import AISolution from './AiSolution';
 import './App.css';
 
+
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem('token'));
 

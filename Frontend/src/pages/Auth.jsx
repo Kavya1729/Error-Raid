@@ -34,7 +34,7 @@ const Auth = ({ setIsAuthenticated }) => {
 
     try {
       const response = await axios.post(
-        `https://error-raid-1.onrender.com${endpoint}`,
+        `http://localhost:3000${endpoint}`,
         payload
       );
       localStorage.setItem("token", response.data.token);
