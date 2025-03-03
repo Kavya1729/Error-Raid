@@ -6,6 +6,7 @@ const app = express();
 const mongoose = require('mongoose');
 require("dotenv").config();
 
+app.use(cors());
 app.use(
   cors({
     origin: "https://error-raid-frontend1.onrender.com",
