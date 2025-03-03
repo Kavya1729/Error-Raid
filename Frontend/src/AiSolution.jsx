@@ -22,7 +22,7 @@ function AISolution() {
   async function reviewCode() {
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      "https://error-raid-1.onrender.com/ai/get-solution",
+      "http://localhost:3000/ai/get-solution",
       { code },
       {
         headers: { Authorization: `Bearer ${token}` },
@@ -72,7 +72,7 @@ function AISolution() {
             />
           </div>
           <div onClick={reviewCode} className="review">
-            Debug
+            Review
           </div>
         </div>
         <div className="right">
