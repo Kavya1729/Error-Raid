@@ -68,7 +68,7 @@ function AISolution() {
             />
           </div>
           <div onClick={reviewCode} className="review">
-            Debug
+            Review
           </div>
         </div>
         <div className="right">
