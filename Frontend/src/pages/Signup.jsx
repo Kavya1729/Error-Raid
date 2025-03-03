@@ -11,10 +11,7 @@ const Signup = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "https://error-raid-1.onrender.com/auth/signup",
-        { username, email, password }
-      );
+      const response = await axios.post('http://localhost:3000/auth/signup', { username, email, password });
       localStorage.setItem('token', response.data.token); 
       setIsAuthenticated(true); 
       navigate('/ai/get-solution'); 

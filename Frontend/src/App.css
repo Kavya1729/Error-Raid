@@ -48,10 +48,10 @@ main .left .review {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
-  background-color: #379ed6;
-  color: whitesmoke;
+  background-color: rgb(219, 219, 255);
+  color: #000000;
   padding: 0.5rem 2rem;
-  font-weight: 900;
+  font-weight: 500;
   cursor: pointer;
   user-select: none;
   border-radius: 0.7rem;
