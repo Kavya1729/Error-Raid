@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-//hello
+
 const Signup = ({ setIsAuthenticated }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ const Signup = ({ setIsAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://error-raid-backend.onrender.com/auth/signup",
+        "http://localhost:3000/auth/signup",
         {
           username,
           email,
