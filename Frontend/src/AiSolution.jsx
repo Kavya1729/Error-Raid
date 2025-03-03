@@ -6,7 +6,7 @@ import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github-dark.css";
 import axios from "axios";
-import logo from "../src/assets/whitelogo.png"; 
+import logo from "../src/assets/whitelogo.png";
 
 function AISolution() {
   const [code, setCode] = useState(`function sum() {
@@ -37,17 +37,13 @@ function AISolution() {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center", 
+          justifyContent: "center",
           padding: "0.5rem 1.5rem",
-          marginBottom:'-80px',
-          marginTop:'-90px'
+          marginBottom: "-80px",
+          marginTop: "-90px",
         }}
       >
-        <img
-          src={logo}
-          alt="Logo"
-          style={{ width: "auto", height: "250px" }} 
-        />
+        <img src={logo} alt="Logo" style={{ width: "auto", height: "250px" }} />
       </nav>
 
       {/* Main Content */}
