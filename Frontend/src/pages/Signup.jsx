@@ -12,7 +12,7 @@ const Signup = ({ setIsAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/signup",
+        "https://error-raid-backend.onrender.com/auth/signup",
         {
           username,
           email,
