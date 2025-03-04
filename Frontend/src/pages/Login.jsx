@@ -11,7 +11,7 @@ const Login = ({ setIsAuthenticated }) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/auth/login",
+        "https://error-raid-backend.onrender.com/auth/login",
         {
           email,
           password,
