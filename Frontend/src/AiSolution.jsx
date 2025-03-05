@@ -22,7 +22,7 @@ function AISolution() {
   async function reviewCode() {
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      "https://error-raid-backend.onrender.com/ai/get-solution",
+      `${process.env.REACT_APP_BACKEND_URL}/ai/get-solution`,
       { code },
       {
         headers: { Authorization: `Bearer ${token}` },
