@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+require("dotenv").config();
 
 const Login = ({ setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
@@ -10,10 +11,13 @@ const Login = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.Backend_URL}/auth/login`, {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/auth/login`,
+        {
+          email,
+          password,
+        }
+      );
       localStorage.setItem("token", response.data.token);
       setIsAuthenticated(true);
       navigate("/ai/get-solution");

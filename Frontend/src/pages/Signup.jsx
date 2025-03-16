@@ -11,11 +11,14 @@ const Signup = ({ setIsAuthenticated }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`${process.env.Backend_URL}/auth/signup`, {
-        username,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/auth/signup`,
+        {
+          username,
+          email,
+          password,
+        }
+      );
       localStorage.setItem("token", response.data.token);
       setIsAuthenticated(true);
       navigate("/ai/get-solution");

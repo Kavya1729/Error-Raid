@@ -34,7 +34,7 @@ const Auth = ({ setIsAuthenticated }) => {
 
     try {
       const response = await axios.post(
-        `${process.env.Backend_URL}${endpoint}`,
+        `${import.meta.env.VITE_BACKEND_URL}${endpoint}`,
         payload
       );
       localStorage.setItem("token", response.data.token);
