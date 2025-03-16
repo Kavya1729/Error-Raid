@@ -34,7 +34,7 @@ const Auth = ({ setIsAuthenticated }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:3000${endpoint}`,
+        `${process.env.Backend_URL}${endpoint}`,
         payload
       );
       localStorage.setItem("token", response.data.token);
@@ -189,4 +189,4 @@ const Auth = ({ setIsAuthenticated }) => {
 };
 
 export default Auth;
-//done 
+//done

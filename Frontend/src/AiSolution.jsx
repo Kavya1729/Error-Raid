@@ -22,7 +22,7 @@ function AISolution() {
   async function reviewCode() {
     const token = localStorage.getItem("token");
     const response = await axios.post(
-      "http://localhost:3000/ai/get-solution",
+      `${process.env.Backend_URL}/ai/get-solution`,
       { code },
       {
         headers: { Authorization: `Bearer ${token}` },
